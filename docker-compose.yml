@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./data/reports:/app/data/reports
+    environment:
+      - HEADLESS=true
+      - LOG_LEVEL=info
+      - DASHBOARD_PORT=3000

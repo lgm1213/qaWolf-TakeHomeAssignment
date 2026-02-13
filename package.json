@@ -1,0 +1,26 @@
+{
+  "name": "qa_wolf_take_home",
+  "version": "1.0.0",
+  "description": "QA Wolf Take-Home: Hacker News sort validation with dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:chromium": "npx playwright test --project=chromium",
+    "test:api": "npx playwright test tests/hackerNewsApi.spec.js",
+    "test:cross": "npx playwright test tests/hackerNewsCrossValidation.spec.js",
+    "start": "node dashboard/server.js",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "Luis Mejia",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "playwright": "^1.58.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^20.8.9"
+  }
+}

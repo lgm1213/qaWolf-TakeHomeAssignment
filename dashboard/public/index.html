@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Wolf — Test Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>QA Wolf Test Dashboard</h1>
+      <span id="health-indicator" class="health unknown" title="System health">●</span>
+    </div>
+    <p class="subtitle">Hacker News Sort Validation</p>
+  </header>
+
+  <main>
+    <!-- Summary Cards -->
+    <section class="summary-cards">
+      <div class="card">
+        <div class="card-label">Total Runs</div>
+        <div class="card-value" id="total-runs">—</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Pass Rate</div>
+        <div class="card-value" id="pass-rate">—</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Avg Duration</div>
+        <div class="card-value" id="avg-duration">—</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Last Status</div>
+        <div class="card-value" id="last-status">—</div>
+      </div>
+    </section>
+
+    <!-- Run Tests Panel -->
+    <section class="panel run-panel">
+      <h2>Run Tests</h2>
+      <div class="run-controls">
+        <select id="browser-select">
+          <option value="chromium">Chromium</option>
+          <option value="firefox">Firefox</option>
+          <option value="webkit">WebKit</option>
+        </select>
+        <select id="suite-select">
+          <option value="">All Suites</option>
+          <option value="tests/hackerNewsSort.spec.js">Sort (Fixtures)</option>
+          <option value="tests/hackerNewsSortStandalone.spec.js">Sort (Standalone)</option>
+          <option value="tests/hackerNewsApi.spec.js">API Validation</option>
+          <option value="tests/hackerNewsCrossValidation.spec.js">Cross-Validation</option>
+        </select>
+        <button id="run-btn" onclick="triggerTestRun()">Run Tests</button>
+      </div>
+      <div id="run-status" class="run-status hidden"></div>
+      <pre id="run-output" class="run-output hidden"></pre>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-grid">
+      <div class="panel">
+        <h2>Pass / Fail Trend</h2>
+        <canvas id="trend-chart" width="600" height="250"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Execution Time</h2>
+        <canvas id="duration-chart" width="600" height="250"></canvas>
+      </div>
+    </section>
+
+    <!-- Latest Run Details -->
+    <section class="panel">
+      <h2>Latest Run Details</h2>
+      <div id="latest-tests" class="test-list">
+        <p class="muted">No data yet. Run tests or wait for data to load.</p>
+      </div>
+    </section>
+
+    <!-- Article Data -->
+    <section class="panel">
+      <h2>Article Data</h2>
+      <div id="article-table-container">
+        <p class="muted">Article data will appear after a test run.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>QA Wolf Take-Home — Luis Mejia</p>
+  </footer>
+
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
